@@ -1,1 +1,54 @@
-Use latex
+\documentclass[11pt,a4paper,english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[svgnames]{xcolor}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\lstset{language=c++,
+	numberstyle=\ttfamily,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{gray}\ttfamily,
+	morecomment=[l][\color{magenta}]{\#},
+	breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+\title{Pengolahan Citra Video}
+\author{Azzam Wildan Maulana}
+\date{16 April 2022}
+
+\begin{document}
+\maketitle
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{its.png}
+\end{figure}	
+
+\pagebreak
+
+\section{Pengenalan program}
+Pada tugas PCV kali ini yaitu membuat sebuah virtual-backgroud dari sebuah video. Pada tugas ini saya menggunakan OpenCV C++ karena saya ingin belajar hal yang lebih baru. Program yang saya buat memiliki dua sub-program, yang pertama yaitu sub-program untuk melakukan treshold untuk background yang akan digunakan, dan kedua adalah menampilkan hasilnya.   
+Program yang saya buat memanfaatkan lib-yaml untuk melakukan dynamic load-save nilai konfigurasi untuk tresholdnya. Dan juga, menggunakan fitur trackbar untuk mengatur nilai treshold HSV nys.     
+
+\section{Penjelasan program}
+\begin{enumerate}
+  \item Memuat video dari sebuah source video dan sebuah vbg dari sebuah gambar
+  \item Melakukan resampling pada setiap frame nya
+  \item Mencari nilai treshold HSV untuk backgroundnya
+  \item Membuat mask dan inverted mask-nya dari nilai treshold tersebut 
+  \item Meng-burn mask ke frame video
+  \item Menggabungkan hasil dari burn mask menjadi satu frame
+  \item Menampilkan frame final yang dibuat pada step 6
+\end{enumerate}
+
+\section{Source code}
+Adapun source code yang telah saya buat adalah sebagai berikut: 
+\lstinputlisting[label={foo},caption={main.cpp}, language={C++}]{main.cpp}
+
+\section{Dokumentasi}
+
+\end{document}
